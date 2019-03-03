@@ -1,6 +1,10 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable react/no-set-state */
 import React, { Component } from 'react';
+import { loginStyle } from '../../constants/styles';
+
+// Logo Import
+const logo = require('../../constants/smackLogo.svg');
 
 class Login extends Component {
   constructor (props) {
@@ -21,13 +25,14 @@ class Login extends Component {
 
   render () {
     return (
-    <div>
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <input placeholder='Whats your name?' ref={(c) => this.nameInput = c} type='text' onChange={(e) => this.handleChange(e)}/>
+    <div style={loginStyle.container}>
+      <form style={loginStyle.form} onSubmit={(e) => this.handleSubmit(e)}>
+        <img src={logo} style={loginStyle.logo} />
+        <input placeholder='Whats your name?' ref={(c) => this.nameInput = c} style={loginStyle.input} type='text' onChange={(e) => this.handleChange(e)}/>
         {
           this.state.name ? <p>Hello {this.state.name} !</p> : null
         }
-        <input type='submit' value='Login' />
+        <input style={loginStyle.button} type='submit' value='Login' />
       </form>
     </div>
     );
