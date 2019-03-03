@@ -15,8 +15,8 @@ import { combineReducers } from 'redux-immutablejs';
 import { routerReducer as routerReducer, syncHistoryWithStore } from 'react-router-redux';
 
 // The pages in our chat application.
-// import Chat from './pages/chat/view';
-import Login from './pages/login';
+import Chat from './pages/chat/view/index';
+import Login from './pages/login/view';
 import Wrapper from './app/view';
 
 import { login } from './data/actions';
@@ -39,7 +39,7 @@ const routes = (
       <IndexRedirect to='/login' />
     </Route>
     <Route component={Login} path='/login' />
-    {/* Add /chat route */}
+    <Route component={Chat} path='/chat' />
     <Route path='*'>
       <IndexRedirect to='/login' />
     </Route>
